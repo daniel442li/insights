@@ -1,3 +1,4 @@
 # vandy-hacks
 
-testing
+OCR program for VandyHack VII
+
