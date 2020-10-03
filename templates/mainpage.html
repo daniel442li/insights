@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/design.css') }}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Receipt Tracker</title>
+</head>
+
+<body>
+    <div>
+        <a href = "/signedIn"> 
+        <img id = "logo" src="/static/saving-money.svg" alt="cute coint logo image" height = 60 width = 60>
+        </a>
+        <a href="/history">
+            <button type="button" id="visualButton">History</button>
+         </a>
+         <a href="/analysis">
+            <button type="button" id="suggestButton">Analysis</button>
+         </a>
+
+        
+        
+    </div>
+    <div>
+        <center>
+        <img id = "logo" id = "receipt" src="/static/bill.svg" alt="cute coint logo image" height = 300 width = 300>
+        </center>
+    </div>
+
+    <div id = "userInput">
+    <center>
+        <button id = "cameraInput" type="button">Camera/Upload</button>
+        <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput"> 
+    </center>
+    <div>
+    
+</body>
+
+</html>
