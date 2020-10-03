@@ -14,12 +14,13 @@ cat_totals = [0, 0, 0, 0, 0, 0, 0]
 
 again = 1
 
-#[groceries/necessities, dining, entertainment, clothing, transportation, utilities, miscellaneous]
+titles = ['groceries/necessities', 'dining', 'entertainment', 'clothing', 'transportation', 'utilities', 'miscellaneous']
 
 categories = {"costco": 0, "cvs": 0, "kroger": 0, "piggly wiggly":0, "mcdonald":1, "chick-fil-a":1, "chick fil a":1,"hattie b":1, "amc": 2, "topgolf": 2, "gap":3, "nordstrom":3,"lululemon":3, "macy":3, "macys": 3, "uber": 4, "lyft":4, "bp":4, "shell":4, "marathon": 4, "exxon": 4}
 
 f = open("total.json", "w")
 
+#remove while loop when integrating into flask
 while again == 1:
     for x in sorted_text:
         if x == 'total' or x == 'total:':
@@ -47,13 +48,16 @@ while again == 1:
 
     print(total)
 
+    #scan another receipt function
     inp = input('Would you like to scan another receipt? ')
     if inp == 'n':
         again = 0
         print(again)
 
-print(total)
 print(cat_totals)
-f.write("{total: " + str(total) + "}\n")
 
-        
+#export to json file
+f.write("{total: " + str(total) + "}\n")
+for value in range(len(cat_totals)):
+    f.write(",{" + titles[value] + ": " + str(cat_totals[value]) + "}\n")
+
