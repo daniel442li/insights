@@ -61,5 +61,3 @@ f.write("{total: " + str(total) + "}\n")
 for value in range(len(cat_totals)):
     f.write(",{" + titles[value] + ": " + str(cat_totals[value]) + "}\n")
 
-return cat_totals
-
