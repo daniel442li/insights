@@ -1,8 +1,5 @@
 import pytesseract
 from PIL import Image
-from autocorrect import Speller
-
-#spell = Speller()
 
 text = pytesseract.image_to_string(Image.open('Receipt2.JPG'))
 #text = spell(text)
@@ -61,5 +58,4 @@ f.write("{total: " + str(total) + "}\n")
 for value in range(len(cat_totals)):
     f.write(",{" + titles[value] + ": " + str(cat_totals[value]) + "}\n")
 
-return cat_totals
 

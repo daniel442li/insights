@@ -3,10 +3,11 @@
 
 <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/design.css') }}">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Receipt Tracker</title>
+    <title>Reciept Tracker</title>
 </head>
 
 <body>
@@ -17,8 +18,8 @@
         <a href="/history">
             <button type="button" id="visualButton">History</button>
          </a>
-         <a href="/analysis">
-            <button type="button" id="suggestButton">Analysis</button>
+         <a href="/">
+            <button type="button" id="suggestButton">Log Out</button>
          </a>
 
         
@@ -32,11 +33,28 @@
 
     <div id = "userInput">
     <center>
-        <button id = "cameraInput" type="button">Camera/Upload</button>
-        <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput"> 
+        
     </center>
-    <div>
-    
+    <script>
+        function doSomethingWithFiles(image) {
+            fetch("http://127.0.0.1:5000/processImage", {
+            method: 'POST',
+            body: image,
+            }).then((response) => {
+            console.log(response)
+            })
+        }
+        console.log("Successfully Uploaded Photo")
+        const fileInput = document.getElementById('file-input');
+        fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+      </script>
+    <div>  
+    <center>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <p><input type="file" name="file"></p>
+        <p><input type="submit" value="Submit"></p>
+        </form>
+    </center>
 </body>
 
 </html>
