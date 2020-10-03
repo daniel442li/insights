@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/design.css') }}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Receipt Tracker</title>
+    
+  </head>
+  <body>
+    <p id = "title">Receipt Tracker</h1>
+
+    <div id="firebaseui-auth-container"></div>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoq7IgLPWG7zI0tEVONb-D82zLaBSuyYo",
+        authDomain: "vandy-hac.firebaseapp.com",
+        databaseURL: "https://vandy-hac.firebaseio.com",
+        projectId: "vandy-hac",
+        storageBucket: "vandy-hac.appspot.com",
+        messagingSenderId: "485631918150",
+        appId: "1:485631918150:web:593611aeb90f7a33420a47",
+        measurementId: "G-Q0D0ZWJHJE"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- Firebase UI -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+    />
+    <script src="{{url_for('static', filename='js/auth.js')}}"></script>
+  </body>
+</html>
