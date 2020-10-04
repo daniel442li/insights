@@ -1,0 +1,16 @@
+{ "financedata": [{"Category": "necessities", "Color (hex)": "#2F6690", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "dining", "Color (hex)": "#DC602E", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "entertainment", "Color (hex)": "#F0DCCA", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "clothing", "Color (hex)": "#040403", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "transportation", "Color (hex)": "#F7C03C", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "other", "Color (hex)": "#88D18A", "Spent": "0", "Percent of total spent": 0.0
+},
+{"Category": "remaining", "Color (hex)": "#BC9CB0", "Spent": "250", "Percent of total spent": 100.0
+}
+]
+}

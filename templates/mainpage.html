@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Receipt Tracker</title>
+    <title>insights</title>
 
     
 
@@ -71,22 +71,32 @@
     $(function() {
    $.getJSON('/static/receipts.json', function(data) {
        $.each(data.data, function(i, f) {
-          var first = true;
           var tblRow = "<tr>" + "<td>" + f.date + "</td>" + "<td>" + f.category + "</td>" + "<td>" + "$" + f.total + "</td>" +
            "</tr>"
           $(tblRow).appendTo("#userdata tbody");
      });
    });
 });
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 </script>
+    
 
     <div>
         <a href = "/signedIn"> 
         <img id = "logo" src="/static/saving-money.svg" alt="cute coint logo image" height = 60 width = 60>
         </a>
-        <a href="/history">
-            <button type="button" id="visualButton">History</button>
-         </a>
+        <a href="/analysis">
+        <form method="POST" id = "historyForm" action="/analysis" enctype="multipart/form-data">
+        <button type="submit" id="visualButton">Analytics</button>
+        </a>
+        </form>
          <a href="/">
             <button type="button" onClick = "logout()" id="suggestButton">Log Out</button>
          </a>
