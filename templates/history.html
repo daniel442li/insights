@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/design.css') }}">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>insights</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+    <script>
+        //parsing json file for pie chart description
+        var ids = ["groceries", "dining", "entertainment", "clothing", "transportation", "miscellaneous"];
+        $.getJSON("/static/data.json", function(json) {
+            for(i = 0; i <= 5; i++){
+                var thisInfo = json["financedata"][i]["Category"].concat(": $", json["financedata"][i]["Spent"], " (", json["financedata"][i]["Percent of total spent"], "% of total spending", ")")
+                console.log(thisInfo);
+                console.log(ids[i]);
+                //$(thisInfo).appendTo(ids[i]);
+                document.getElementById(ids[i]).innerHTML = thisInfo;
+            }
+        });
+
+    </script>
+</head>
+
+<body>
+    <a href = "/signedIn"> 
+        <img id = "logo" src="/static/saving-money.svg" alt="cute coint logo image" height = 60 width = 60>
+        </a>
+    <img id = "pieBreakdown" src="/static/pieBreakdown.png" alt="pieBreakdown image" >
+
+    <div id="pieBreakdownKey">
+        <p id="historyHeader">Monthly Expense History</p>
+        <p id="groceriesColor"></p>
+        <pre id="groceries"></pre>
+        
+        <p id="diningColor"></p>
+        <pre id="dining"></pre>
+
+        <p id="entertainmentColor"></p>
+        <pre id="entertainment"></pre>
+
+        <p id="clothingColor"></p>
+        <pre id="clothing"></pre>
+
+        <p id="transportationColor"></p>
+        <pre id="transportation"></pre>
+
+        <p id="miscellaneousColor"></p>
+        <pre id="miscellaneous"></pre>
+
+        <p id="remainingColor"></p>
+        <p id="remaining">remaining</p>
+        
+        <pre id="sugHeader">
+
+
+
+Lots of clothing purchase</pre>
+        <pre id="sugBody">
+You are spending a lot of money on clothes! 
+Consider cutting back on retail purchases. 
+If you need more clothes, try secondhand stores, 
+like Goodwill or Plato's closet.
+        </p>
+    </div>
+
+    
+</body>
+
+</html>

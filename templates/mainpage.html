@@ -2,41 +2,144 @@
 <html lang="en">
 
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/design.css') }}">
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Receipt Tracker</title>
+    <title>insights</title>
+
+    
+
 </head>
 
 <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoq7IgLPWG7zI0tEVONb-D82zLaBSuyYo",
+        authDomain: "vandy-hac.firebaseapp.com",
+        databaseURL: "https://vandy-hac.firebaseio.com",
+        projectId: "vandy-hac",
+        storageBucket: "vandy-hac.appspot.com",
+        messagingSenderId: "485631918150",
+        appId: "1:485631918150:web:593611aeb90f7a33420a47",
+        measurementId: "G-Q0D0ZWJHJE"
+    };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+<script>
+    function logout() {
+    firebase.auth().signOut().then(function() {
+        console.log("Logging out")
+    }, function(error) {
+    // An error happened.
+    });
+}
+    firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        fetch("http://127.0.0.1:5000/retrieve", {
+        "method": "POST",
+        "headers": {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+                userId: user.uid
+            }), 
+        
+        })
+        .then(response => {
+        console.log(response);
+        })
+        .catch(err => {
+        console.error(err);
+        });
+    } else {
+        // User not logged in or has just logged out.
+    }
+    });
+
+
+    $(function() {
+   $.getJSON('/static/receipts.json', function(data) {
+       $.each(data.data, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.date + "</td>" + "<td>" + f.category + "</td>" + "<td>" + "$" + f.total + "</td>" +
+           "</tr>"
+          $(tblRow).appendTo("#userdata tbody");
+     });
+   });
+});
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+    
+
     <div>
         <a href = "/signedIn"> 
         <img id = "logo" src="/static/saving-money.svg" alt="cute coint logo image" height = 60 width = 60>
         </a>
-        <a href="/history">
-            <button type="button" id="visualButton">History</button>
+        <a href="/analysis">
+        <form method="POST" id = "historyForm" action="/analysis" enctype="multipart/form-data">
+        <button type="submit" id="visualButton">Analytics</button>
+        </a>
+        </form>
+         <a href="/">
+            <button type="button" onClick = "logout()" id="suggestButton">Log Out</button>
          </a>
-         <a href="/analysis">
-            <button type="button" id="suggestButton">Analysis</button>
-         </a>
-
-        
-        
     </div>
     <div>
         <center>
-        <img id = "logo" id = "receipt" src="/static/bill.svg" alt="cute coint logo image" height = 300 width = 300>
+        <img id = "logo" id = "receipt" src="/static/bill.svg" alt="cute coint logo image" height = 200 width = 200>
         </center>
     </div>
-
-    <div id = "userInput">
-    <center>
-        <button id = "cameraInput" type="button">Camera/Upload</button>
-        <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput"> 
-    </center>
     <div>
     
+    <form method="POST" action="" enctype="multipart/form-data">
+    <center>
+        <p><input type="file" name="file" text = "Upload/Take"></p>
+        <div id = "submitdiv">
+            <p><input type="submit" id = "submit" value="Submit"> 
+            </form>
+                <form method="POST" action="/clear" enctype="multipart/form-data"> 
+                    <input type="submit" id = "clearButton" value="Clear"></p>
+                </form>
+                
+            
+        </div>
+        
+        
+    </center>
+    </div>
+    <div id = "userdatadiv">
+    <center>
+        <table class="minimalistBlack" id= "userdata" border="1">
+            <thead>
+                 <th>Upload Date</th>
+                 <th>Category</th>   
+                 <th>Prices</th>
+                  </thead>
+                <tbody>
+          
+                 </tbody>
+             </table>
+          
+          </div>
+    </center>
+        
 </body>
 
 </html>
