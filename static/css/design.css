@@ -10,25 +10,25 @@ body {
     font-weight: bold; 
     color: #040403;
     text-align: center;
-    padding-top: 200px;
+    padding-top: 120px;
     padding-bottom: 10px;
     }
 
 #receipt {
     text-align: center;
-    padding-top: 200px;
+    padding-top: 10px;
 }
 
 #visualButton {
-    background-color:#44c767;
+    background-color:#4d6fce;
 	border-radius:28px;
-	border:1px solid #18ab29;
+	border:1px solid #4d6fce;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding: 15px 32px;
+	font-family: Helvetica;
+	font-size:14px;
+	padding: 7px 32px;
 	text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
     position: absolute;
@@ -37,20 +37,20 @@ body {
 }
 
 #visualButton:hover {
-	background-color:#5cbf2a;
+	background-color:#86a6d4;
 }
 
 
 #suggestButton {
-    background-color:#44c767;
+    background-color:#4d6fce;
 	border-radius:28px;
-	border:1px solid #18ab29;
+	border:1px solid #4d6fce;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding: 15px 32px;
+	font-family: Helvetica;
+	font-size:14px;
+	padding: 7px 32px;
 	text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
     position: absolute;
@@ -59,7 +59,7 @@ body {
 }
 
 #suggestButton:hover {
-	background-color:#5cbf2a;
+	background-color:#86a6d4;
 }
 
 #cameraInput {
@@ -68,4 +68,88 @@ body {
 
 #userInput {
     padding-top: 50px;
+    font-family: Helvetica;
+}
+
+#submitdiv {
+    padding-right: 70px;
+}
+
+#userdatadiv {
+    padding-right: 70px;
+}
+
+#submit {
+    background-color:#4dce78;
+	border-radius:28px;
+	border:1px solid #4dce78;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Helvetica;
+	font-size:14px;
+	padding: 7px 32px;
+	text-decoration:none;
+}
+
+#submit:hover {
+	background-color:#86d486;
+}
+
+table.minimalistBlack {
+    border: 3px solid #000000;
+    width: 50%;
+    text-align: left;
+    border-collapse: collapse;
+    font-family: Helvetica;
+  }
+  table.minimalistBlack td, table.minimalistBlack th {
+    border: 1px solid #000000;
+    padding: 5px 4px;
+  }
+  table.minimalistBlack tbody td {
+    font-size: 13px;
+  }
+  table.minimalistBlack thead {
+    background: #CFCFCF;
+    background: -moz-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    background: -webkit-linear-gradient(top, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    background: linear-gradient(to bottom, #dbdbdb 0%, #d3d3d3 66%, #CFCFCF 100%);
+    border-bottom: 3px solid #000000;
+  }
+  table.minimalistBlack thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+  }
+  table.minimalistBlack tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    border-top: 3px solid #000000;
+  }
+  table.minimalistBlack tfoot td {
+    font-size: 14px;
+  }
+
+  #clearButton {
+    background-color:#ce514d;
+	border-radius:28px;
+	border:1px solid #ce514d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: Helvetica;
+	font-size:14px;
+	padding: 7px 32px;
+	text-decoration:none;
+  }
+
+  #clearButton:hover {
+	background-color:#ecafa4;
+}
+
+#enterForm, #clearForm {
+    display: inline-block; /* or inline */
 }

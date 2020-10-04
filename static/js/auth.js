@@ -8,7 +8,7 @@ const uiConfig = {
       return true;
     },
     uiShown() {
-      document.getElementById('loader').style.display = 'none';
+      document.getElementById('loader');
     },
   },
   signInFlow: 'popup',
@@ -24,3 +24,4 @@ const uiConfig = {
 // 3) Call the 'start' method on our ui class
 // including our configuration options. 
 ui.start('#firebaseui-auth-container', uiConfig);
+
